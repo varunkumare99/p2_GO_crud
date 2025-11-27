@@ -9,6 +9,15 @@ import (
     "p2_GO_crud/store"
 )
 
+func HealthHandler(w http.ResponseWriter, r *http.Request) {
+    if r.Method == http.MethodGet {
+        w.WriteHeader(http.StatusOK)
+        writeJSON(w, "boss I'm in good health")
+    } else {
+        http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+    }
+}
+
 func TodosHandler(w http.ResponseWriter, r *http.Request) {
     switch r.Method {
     case http.MethodGet:

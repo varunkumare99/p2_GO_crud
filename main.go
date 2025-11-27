@@ -12,6 +12,7 @@ func main() {
 
     mux.Handle("/todos", http.HandlerFunc(handlers.TodosHandler))
     mux.Handle("/todos/", http.HandlerFunc(handlers.TodoByIDHandler))
+    mux.Handle("/health", http.HandlerFunc(handlers.HealthHandler))
     
     wrapped := middleware.Logging(mux)
 

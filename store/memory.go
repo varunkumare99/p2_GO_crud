@@ -2,6 +2,7 @@ package store
 
 import (
     "p2_GO_crud/models"
+    "time"
 )
 
 var todos []models.Todo
@@ -25,6 +26,7 @@ func CreateTodo(title string) models.Todo {
         ID: nextID,
         Title: title,
         Done: false,
+        CreatedAt: time.Now().Format(time.RFC3339),
     }
 
     nextID++
